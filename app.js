@@ -3,6 +3,22 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+// rate limiter
+const rateLimit = require('express-rate-limit');
+const limiter = rateLimit({
+    windowMS: 60,
+    max: 10,
+    message: {
+        quotes: [{
+            quote: "Too many transactions, try again later"
+        }],
+        "how-to": "www.test.com/api-wiki",
+        "bugs": "https://github.com/xxxxxxx/test-api"
+    }
+});
+app.use(limiter);
+
+
 app.enable('jsonp escape');
 
 app.use(bodyParser.urlencoded({
