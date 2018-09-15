@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 app.enable('jsonp escape');
-//app.set('jsonp callback name', 'quoteBack')
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -25,7 +24,7 @@ app.use((req, res, next) => {
 });
 
 // db connect
-// SCRAM_user pwd should be env variable!!!!!
+// SCRAM_user pwd is env variable!!!!!
 mongoose.connect('mongodb+srv://SCRAM_user:' +
     process.env.MONGO_ATLAS_PW +
     '@cluster0-rlqxx.mongodb.net/test?retryWrites=true', {
