@@ -17,7 +17,7 @@ exports.validateQuantity = (qty) => {
         return 1;
     }
     qty = parseInt(qty)
-    if (!qty) {
+    if (!qty){
         return 1;
     } else if (qty > MAX_RECORDS) {
         return MAX_RECORDS;
@@ -32,7 +32,7 @@ exports.formatResponse = (doc, payload={}) => {
             "author": el.author,
             "quote": el.quote,
             "id": el._id,
-            "url": "www.test.com/quote/quotes.v1/id/" + el._id
+            "url": "www.test.com/quote/quotes/v1/id/" + el._id
         };
     });
 
