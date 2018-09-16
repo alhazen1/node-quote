@@ -3,6 +3,8 @@
 // utils.js helper functions
 //const exports = module.exports = {};
 
+const safeRegex = require("safe-regex" );
+
 const MAX_RECORDS = 10;  // should save elsewhere!!!
 const PAYLOAD_INFO = {
     "how-to": "www.test.com/api-wiki",
@@ -53,7 +55,10 @@ exports.getMatch = (params) => {
                     $exists: true
                 }
             } else {
-                match[prop] = RegExp(params[prop], 'i');
+                if (safeRegex(params[prop])) {
+                    match[prop] = RegExp(params[prop], 'i');
+                }
+                // just ignore evil regex?
             }
         }
         //console.log(match)
