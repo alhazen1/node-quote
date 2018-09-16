@@ -12,8 +12,6 @@ const mongoose = require('mongoose');
 
 const processRequest = (req, res, next) => {
 
-   // const func = 'jsonp'
-
     const reconciledRequest = utils.reconcileRequest(req);
 
     if (parseInt(req.params.quantity) > MAX_RECORDS) {

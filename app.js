@@ -3,6 +3,29 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+// helmet config
+var helmet = require('helmet');
+app.use(helmet({
+    noCache: true
+}))
+
+
+// rate limiter
+const rateLimit = require('express-rate-limit');
+const limiter = rateLimit({
+    windowMS: 60,
+    max: 10,
+    message: {
+        quotes: [{
+            quote: "Too many transactions, try again later"
+        }],
+        "how-to": "www.test.com/api-wiki",
+        "bugs": "https://github.com/xxxxxxx/test-api"
+    }
+});
+app.use(limiter);
+
+
 app.enable('jsonp escape');
 
 app.use(bodyParser.urlencoded({
@@ -17,7 +40,8 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
 
     if (req.method === 'OPTIONS') {
-        res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+        //res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+        res.header('Access-Control-Allow-Methods', 'GET');
         return res.status(200).json({});
     }
     next();

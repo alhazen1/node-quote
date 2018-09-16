@@ -1,5 +1,9 @@
+// edit from working branch
+//second edit from working branch
 // utils.js helper functions
 //const exports = module.exports = {};
+
+const safeRegex = require("safe-regex" );
 
 const MAX_RECORDS = 10;  // should save elsewhere!!!
 const PAYLOAD_INFO = {
@@ -15,7 +19,7 @@ exports.validateQuantity = (qty) => {
         return 1;
     }
     qty = parseInt(qty)
-    if (!qty) {
+    if (!qty){
         return 1;
     } else if (qty > MAX_RECORDS) {
         return MAX_RECORDS;
@@ -30,7 +34,7 @@ exports.formatResponse = (doc, payload={}) => {
             "author": el.author,
             "quote": el.quote,
             "id": el._id,
-            "url": "www.test.com/quote/quotes.v1/id/" + el._id
+            "url": "http://www.test.com/quote/quotes/v1/id/" + el._id
         };
     });
 
@@ -51,10 +55,11 @@ exports.getMatch = (params) => {
                     $exists: true
                 }
             } else {
-                match[prop] = RegExp(params[prop], 'i');
+                if (safeRegex(params[prop])) {
+                    match[prop] = RegExp(params[prop], 'i');
+                }
             }
         }
-        //console.log(match)
 
     }
     return match;

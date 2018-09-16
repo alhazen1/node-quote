@@ -14,7 +14,10 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "mongodb": "^3.1.4",
-    "mongoose": "^5.2.13"
+    "express-rate-limit": "^3.1.1",
+    "helmet": "^3.13.0",
+    "mongodb": "^3.1.6",
+    "mongoose": "^5.2.14",
+    "safe-regex": "^1.1.0"
   }
 }
