@@ -34,7 +34,7 @@ exports.formatResponse = (doc, payload={}) => {
             "author": el.author,
             "quote": el.quote,
             "id": el._id,
-            "url": "www.test.com/quote/quotes/v1/id/" + el._id
+            "url": "http://www.test.com/quote/quotes/v1/id/" + el._id
         };
     });
 
@@ -58,10 +58,8 @@ exports.getMatch = (params) => {
                 if (safeRegex(params[prop])) {
                     match[prop] = RegExp(params[prop], 'i');
                 }
-                // just ignore evil regex?
             }
         }
-        //console.log(match)
 
     }
     return match;
