@@ -1,5 +1,3 @@
-// edit from working branch
-//second edit from working branch
 // utils.js helper functions
 //const exports = module.exports = {};
 
@@ -8,7 +6,7 @@ const safeRegex = require("safe-regex" );
 const MAX_RECORDS = 10;  // should save elsewhere!!!
 const PAYLOAD_INFO = {
     "how-to": "www.test.com/api-wiki",
-    "bugs": "https://github.com/xxxxxxx/test-api"
+    "bugs": "https://github.com/alhazen1/node-quote/issues"
 }
 
 exports.validateQuantity = (qty) => {
@@ -34,7 +32,7 @@ exports.formatResponse = (doc, payload={}) => {
             "author": el.author,
             "quote": el.quote,
             "id": el._id,
-            "url": "http://www.test.com/quote/quotes/v1/id/" + el._id
+            "url": "https://still-ridge-34679.herokuapp.com/quotes/v1/" + el._id
         };
     });
 
