@@ -32,7 +32,7 @@ exports.formatResponse = (doc, payload={}) => {
             "author": el.author,
             "quote": el.quote,
             "id": el._id,
-            "url": "https://still-ridge-34679.herokuapp.com/quotes/v1/" + el._id
+            "url": "https://still-ridge-34679.herokuapp.com/quotes/v1/id/" + el._id
         };
     });
 
