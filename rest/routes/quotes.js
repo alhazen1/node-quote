@@ -1,5 +1,5 @@
 const MAX_RECORDS = 10;
-const extraPayload = {};
+
 
 const express = require('express');
 const router = express.Router();
@@ -11,12 +11,13 @@ const mongoose = require('mongoose');
 
 
 const processRequest = (req, res, next) => {
-
-    const reconciledRequest = utils.reconcileRequest(req);
-
-    if (parseInt(req.params.quantity) > MAX_RECORDS) {
-        extraPayload.warning = "Maximum " + MAX_RECORDS + " quotes per request"
-    }
+        const extraPayload = {};
+        const reconciledRequest = utils.reconcileRequest(req);
+        console.log(req.query.quantity, req.params.quantity)
+        if (parseInt(req.params.quantity) > MAX_RECORDS || parseInt(req.query.quantity) > MAX_RECORDS) {
+            console.log("here")
+            extraPayload.warning = "Maximum " + MAX_RECORDS + " quotes per request"
+        }
 
     Quote.aggregate([
             {

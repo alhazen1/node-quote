@@ -68,7 +68,7 @@ exports.reconcileRequest = ({query,params}) => {
         query.splice(query.indexOf('__v', 1))
     }
 
-    const reconciled = Object.assign(query,params);
+    const reconciled = Object.assign({},query,params);
 
     reconciled.quantity = this.validateQuantity(reconciled.quantity);
     return reconciled;
