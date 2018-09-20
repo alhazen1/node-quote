@@ -50,8 +50,7 @@ app.use((req, res, next) => {
 // db connect
 // SCRAM_user pwd is env variable!!!!!
 mongoose.connect('mongodb+srv://SCRAM_user:' +
-    process.env.MONGO_ATLAS_PW +
-    '@cluster0-rlqxx.mongodb.net/test?retryWrites=true', {
+    process.env.MONGO_ATLAS_PW + process.env.DB_CONN, {
         useNewUrlParser: true // old way deprecated
     });
 
