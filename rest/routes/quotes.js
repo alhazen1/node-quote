@@ -54,7 +54,7 @@ router.get('/quantity/:quantity', processRequest);
 router.get('/quantity/:quantity/author/:author', processRequest);
 router.get('/quantity/:quantity/author/:author/quote/:quote', processRequest);
 
-router.get('/quantity/:quantity/author/:author/keyword/:quote/callback/:callback', processRequest);
+router.get('/quantity/:quantity/author/:author/quote/:quote/callback/:callback', processRequest);
 
 
 
