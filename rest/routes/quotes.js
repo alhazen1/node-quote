@@ -13,7 +13,7 @@ const mongoose = require('mongoose');
 const processRequest = (req, res, next) => {
         const extraPayload = {};
         const reconciledRequest = utils.reconcileRequest(req);
-
+console.log(reconciledRequest.callback)
         if (parseInt(req.params.quantity) > MAX_RECORDS || parseInt(req.query.quantity) > MAX_RECORDS) {
             extraPayload.warning = "Maximum " + MAX_RECORDS + " quotes per request"
         }
@@ -54,7 +54,7 @@ router.get('/quantity/:quantity', processRequest);
 router.get('/quantity/:quantity/author/:author', processRequest);
 router.get('/quantity/:quantity/author/:author/quote/:quote', processRequest);
 
-router.get('/quantity/:quantity/author/:author/quote/:quote/callback/', processRequest);
+router.get('/quantity/:quantity/author/:author/quote/:quote/callback/:callback', processRequest);
 
 
 

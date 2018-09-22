@@ -26,7 +26,8 @@ const limiter = rateLimit({
 app.use(limiter);
 
 
-app.enable('jsonp escape');
+app.enable('json escape');
+//app.set('jsonp callback monkey')
 
 app.use(bodyParser.urlencoded({
     extended: false

@@ -69,7 +69,8 @@ exports.reconcileRequest = ({query,params}) => {
     }
 
     const reconciled = Object.assign({},query,params);
-
+console.log(query)
+console.log(params)
     reconciled.quantity = this.validateQuantity(reconciled.quantity);
     return reconciled;
 }
