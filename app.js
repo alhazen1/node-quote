@@ -27,7 +27,7 @@ app.use(limiter);
 
 
 app.enable('json escape');
-//app.set('jsonp callback monkey')
+//app.set('jsonp callback name', 'monkey')
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -37,8 +37,8 @@ app.use(bodyParser.json());
 
 //CORS stuff
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    //res.header('Access-Control-Allow-Origin', '*');
+    //res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
 
     if (req.method === 'OPTIONS') {
         //res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
