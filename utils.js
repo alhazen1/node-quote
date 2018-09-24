@@ -45,7 +45,7 @@ exports.getMatch = (params) => {
 
     for (let prop in params) {
 
-        if (prop === 'quantity' || prop === 'callback' || prop === '_') {
+        if (prop === 'quantity' || prop === 'callback') {
             //skip quantity parameter
         } else if (!Array.isArray(params[prop])) {
             if (params[prop].match(/^any/i)) {
