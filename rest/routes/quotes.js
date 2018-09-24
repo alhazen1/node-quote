@@ -9,6 +9,9 @@ const utils = require('../../utils');
 const Quote = require('../../models/quote');
 const mongoose = require('mongoose');
 
+router.use(function(req,res.next){
+	res.set({'Server':'HadriansWall', 'Via':'3.4 ThorsHammer'});
+});
 
 const processRequest = (req, res, next) => {
         const extraPayload = {};
