@@ -56,11 +56,11 @@ mongoose.connect('mongodb+srv://SCRAM_user:' +
     });
 
 // routes
-const restRoutes = require('./rest/routes/quotes');
-app.use('/quotes/v1', restRoutes);
+//const restRoutes = require('./rest/routes/quotes');
+//app.use('/quotes/v1', restRoutes);
 
-//const apiRoutes = require('./api/routes/quotes');
-//app.use('/quotes/api', apiRoutes);
+const apiRoutes = require('./api/v1/routes/quotes');
+app.use('/api/v1', apiRoutes);
 
 // any route not handled above
 app.use((req, res, next) => {

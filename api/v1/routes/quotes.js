@@ -3,10 +3,10 @@ const MAX_RECORDS = 10;
 
 const express = require('express');
 const router = express.Router();
-const utils = require('../../utils');
+const utils = require('../utils');
 
 // get quote model
-const Quote = require('../../models/quote');
+const Quote = require('../models/quote');
 const mongoose = require('mongoose');
 
 
